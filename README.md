@@ -1,5 +1,5 @@
 # ROS2 driver for NXP Semiconductor PCA9685 I2C PWM chip
-This is a ROS2 port of https://github.com/dheera/ros-pwm-pca9685
+This is a ROS2 port of https://github.com/dheera/ros-pwm-pca9685 and https://github.com/BrettRD/ros-pwm-pca9685:ros2
 
 
 This is a ROS node for the PCA9685. The chip is notably used in the following products:
@@ -79,4 +79,3 @@ For each motor, there are 3 pins: PWM, IN1, and IN2.
 * Motor4: PWM = channel 7, IN1 = channel 5, IN2 = channel 6
 
 For example, to set motor 1 to forward at 50%, send ```{data: [-1, -1, -1, -1, -1, -1, -1, -1, 2047, 4095, 0, -1, -1, -1, -1, -1]}```
-
