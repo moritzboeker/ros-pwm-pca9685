@@ -10,12 +10,14 @@ pwm_node:
 
 ackermann_to_pwm_node:
     ros__parameters:
-      pwm_speed_center: 300
+      pwm_servo_channel_speed: 0      # [0,15] the PWM channel of the servo that drives forwards and backwards
+      pwm_servo_channel_steering: 1   # [0,15] the PWM channel of the servo that steers the robot
+      pwm_speed_center: 300           # the PWM value of the speed servo at which the robot stands still
       pwm_speed_max: 400
       pwm_speed_min: 200
-      pwm_angle_center: 300
-      pwm_angle_max: 400
-      pwm_angle_min: 200
-      max_speed: 1.0
-      max_steering_angle: 1.0472
+      pwm_steer_center: 300           # the PWM value of the steering servo at which the robot drives straight (zero steering angle)
+      pwm_steer_max: 400
+      pwm_steer_min: 200
+      max_speed: 1.0                  # [m/s] the maximum speed when a PWM value of pwm_speed_max is commanded
+      max_steering_angle: 1.0472      # [rad] the maximum steering angle when a PWM value of pwm_steer_max is commanded
 
