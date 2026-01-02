@@ -1,17 +1,21 @@
-mixer_node:
-  ros__parameters:
-    mixer: # defining three channels for three motors
-      bias:         [   307.0,   307.0,   307.0]
-      x:            [   202.0,   202.0,     0.0]
-      yaw:          [   202.0,  -202.0,     0.0]
-      z:            [     0.0,     0.0,   202.0]
-    mask:           [  true,  true,  true]
-
 pwm_node:
   ros__parameters:
     device: "/dev/i2c-1"
     frequency: 50
-    pwm_min:        [   205,   205,   205, 0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
-    pwm_max:        [   409,   409,   409, 0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
-    timeout_value:  [     0,     0,     0, 0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+    address: 0x40
+    pwm_min:        [   200,   200, 0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+    pwm_max:        [   400,   400, 0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+    timeout:        [   200,   200, 0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+    timeout_value:  [     0,     0, 0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0]
+
+ackermann_to_pwm_node:
+    ros__parameters:
+      pwm_speed_center: 300
+      pwm_speed_max: 400
+      pwm_speed_min: 200
+      pwm_angle_center: 300
+      pwm_angle_max: 400
+      pwm_angle_min: 200
+      max_speed: 1.0
+      max_steering_angle: 1.0472
 
