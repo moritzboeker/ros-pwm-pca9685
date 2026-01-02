@@ -10,24 +10,9 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 
 def generate_launch_description():
 
-    config = LaunchConfiguration('config')
-    config_filepath = LaunchConfiguration('config_filepath')
+    config_filepath = PathJoinSubstitution([FindPackageShare('pwm_pca9685'), 'config', 'ackermann_sample.yaml'])
 
     return LaunchDescription([
-
-        DeclareLaunchArgument('config', default_value='esc_diff_drive'),
-        DeclareLaunchArgument('config_filepath', default_value=[
-            PathJoinSubstitution([FindPackageShare('pwm_pca9685'), 'config', config, '.config.yaml'])]),
-
-        # Node(
-        #     package='pwm_pca9685', executable='mixer_node',
-        #     name='mixer_node',
-        #     remappings=[
-        #             ('/cmd_vel', '/cmd_vel'),
-        #             ('/command', '/command'),
-        #     ],
-        #     parameters=[config_filepath]
-        # ),
 
         Node(
             package='pwm_pca9685', executable='pca9685_node',
@@ -47,7 +32,5 @@ def generate_launch_description():
             ],
             parameters=[config_filepath]
         ),
-
-
     ])
 

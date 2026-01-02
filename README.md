@@ -11,8 +11,6 @@ This is a ROS node for the PCA9685. The chip is notably used in the following pr
 
 There should be no dependencies besides libi2c-dev.
 
-There is a simple mixer_node that allows you to map geometry_msgs/msg/twist to PWM channels
-
 # PCA9685_node
 ## Parameters:
 
@@ -29,21 +27,6 @@ There is a simple mixer_node that allows you to map geometry_msgs/msg/twist to P
 
 ## Publishers
 None.
-
-## Services
-None.
-
-
-# mixer_node
-## Parameters:
-* **mixer** the actual mix matrix, this allows you to define any linear mapping between twist channel and pwm channels
-* **mask** a boolean mask to indicate which channels are in use (true), and which channels sould be set to -1 (false)
-
-## Subscribers
-* **cmd_vel** a geometry_msgs/msg/twist, typically from teleop_twist_joy
-
-## Publishers
-* **command** the pwm outputs for PCA9685_node
 
 ## Services
 None.
